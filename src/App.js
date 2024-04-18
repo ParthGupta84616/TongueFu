@@ -1,5 +1,3 @@
-// App.js
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
@@ -9,6 +7,7 @@ import ReadAloud from './pages/ReadAloud';
 import Contact from './pages/Contact';
 import Resources from './pages/Resouces';
 import TongueTwister from './pages/TongueTwister';
+import FAQPage from './pages/FAQPage';
 
 function App() {
   return (
@@ -21,6 +20,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/tonguetwister" element={<TongueTwister />} />
+        <Route path="/faq" element={<FAQPage />} />
       </Routes>
     </Router>
   );
