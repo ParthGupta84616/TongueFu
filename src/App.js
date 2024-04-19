@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import Resources from './pages/Resouces';
 import TongueTwister from './pages/TongueTwister';
 import FAQPage from './pages/FAQPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/resources" element={<Resources />} />
         <Route path="/tonguetwister" element={<TongueTwister />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
     </Router>
   );
