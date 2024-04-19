@@ -57,7 +57,7 @@ const FAQ = () => {
             width="1440"
             height="886"
             viewBox="0 0 1440 886"
-            fill="none"
+            fill="#0000"
             xmlns="http://www.w3.org/2000/svg"
           >
           <path
