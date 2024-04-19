@@ -1,33 +1,22 @@
 import React from 'react'
 import about from "../assets/about1.png"
+import mohit from "../assets/mohit.jpg"
 
 function About() {
   return (
-       <div className="bg-slate-900">
-        <div className="absolute bottom-0 right-0 z-[20]">
-        <svg
-            width="1440"
-            height="886"
-            viewBox="0 0 1440 886"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-            opacity="0.5"
-            d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
-            fill="#192136" 
-            />
-        </svg>
-</div>
-        <div className=''>
+       <div className="">
+        
+<div className="bg-slate-900">
+<div className='relative z-40'>
             <div class="sm:flex items-center max-w-screen-xl">
         <div class="sm:w-1/2 p-10">
-            <div class="image object-center text-center rounded-2xl">
-                <img src={about} className='rounded-2xl'/>
+            <div class="image object-center text-center rounded-2xl z-0 ">
+                <img src={about} className='rounded-2xl '/>
             </div>
         </div>
         <div class="sm:w-1/2 p-5">
-            <div class="text">
-                <span class="text-gray-500 border-b-2 border-indigo-600 uppercase">About us</span>
+            <div class="text ">
+                <span class="text-gray-500 border-b-2 border-indigo-600 uppercase ">About us</span>
                 <h2 class="my-4 font-bold text-3xl  sm:text-4xl ">About <span class="text-indigo-600">Our Company</span>
                 </h2>
                 <p class="text-gray-400">
@@ -40,16 +29,17 @@ function About() {
     </div>
     
     </div>
-    <section class="text-gray-400 body-font">
-  <div class="container px-5 py-24 mx-auto">
+</div>
+    <section class="text-gray-400 bg-slate-900 ">
+  <div class="container px-5 py-24 mx-auto ">
     <div class="flex flex-col text-center w-full mb-20">
-      <h1 class="text-2xl font-medium title-font mb-4 text-gray-100 tracking-widest">OUR TEAM</h1>
+      <h1 class="text-2xl font-medium title-font mb-4 text-gray-100 tracking-widest ">OUR TEAM</h1>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.</p>
     </div>
-    <div class="flex flex-wrap -m-4">
+    <div class="flex flex-wrap -m-4 ">
       <div class="p-4 lg:w-1/2">
         <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200"/>
+          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src={mohit}/>
           <div class="flex-grow sm:pl-8">
             <h2 class="title-font font-medium text-lg text-gray-900">Holden Caulfield</h2>
             <h3 class="text-gray-500 mb-3">UI Developer</h3>
@@ -74,7 +64,7 @@ function About() {
           </div>
         </div>
       </div>
-      <div class="p-4 lg:w-1/2">
+      <div class="p-4 lg:w-1/2 ">
         <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
           <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/201x201"/>
           <div class="flex-grow sm:pl-8">
@@ -159,7 +149,20 @@ function About() {
   </div>
 </section>
 
-
+<div className="absolute bottom-0 right-0 z-[1]">
+        <svg
+            width="1440"
+            height="886"
+            viewBox="0 0 1440 886"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+            opacity="0.5"
+            d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
+            fill="#192136" 
+            />
+        </svg>
+</div>
 </div>
   )
 }
