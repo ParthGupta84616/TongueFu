@@ -5,7 +5,7 @@ import FAQ from '../components/FAQ'
 function FAQPage() {
   return (
     <div>
-        <NavBar />
+        {/* <NavBar /> */}
         <FAQ />
 
     </div>

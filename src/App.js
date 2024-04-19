@@ -9,10 +9,15 @@ import Resources from './pages/Resouces';
 import TongueTwister from './pages/TongueTwister';
 import FAQPage from './pages/FAQPage';
 import AboutPage from './pages/AboutPage';
+import LiveChat from './features/Live Chat/LiveChat';
+import NavBar from './components/Navbar';
+
 
 function App() {
   return (
     <Router>
+      <LiveChat />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

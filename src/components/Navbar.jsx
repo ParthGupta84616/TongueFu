@@ -31,7 +31,7 @@ function NavBar() {
           </Link>
         </li>
         <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'>
-          <Link href='javascript:void(0)'
+          <Link to={"/"}
             class='hover:text-[#007bff] text-[#007bff] block font-semibold text-[15px]'>Home</Link>
         </li>
         {/* <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><Link href='javascript:void(0)'
@@ -45,7 +45,7 @@ function NavBar() {
         <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><Link href='javascript:void(0)'
             class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Blog</Link>
         </li>
-        <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><Link href='javascript:void(0)'
+        <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><Link to={"/about"}
             class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>About</Link>
         </li>
         <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><Link href='javascript:void(0)'
