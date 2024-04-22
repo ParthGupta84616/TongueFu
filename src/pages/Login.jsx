@@ -1,4 +1,5 @@
 import React from 'react';
+import login from "../assets/login.png"
 
 function Login() {
   return (
@@ -11,7 +12,8 @@ function Login() {
         </div>
         
         {/* Main content container */}
-        <div class="container flex flex-col mx-auto rounded-lg bg-slate-900  relative">
+        <div className="flex justify-between">
+        <div class="container flex flex-col mx-auto rounded-lg w-1/2  relative">
           {/* Login form */}
           <div class="flex justify-center w-full my-auto xl:gap-14 lg:justify-normal md:gap-5 draggable">
             <div class="flex items-center justify-center w-full lg:p-6">
@@ -61,6 +63,10 @@ function Login() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="w-1/2 flex items-center justify-center">
+          <img src={login} alt="" />
+        </div>
         </div>
       </body>
     </div>

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchTwisterEnglishAsync, selectTwisterEnglish } from './tongueSlice';
 import { Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import React, { useEffect } from "react";
+import { FiArrowRight } from "react-icons/fi";
 import {
   useMotionTemplate,
   useMotionValue,
@@ -12,11 +11,7 @@ import {
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
-const Tongue = () => {
-
-  const dispatch = useDispatch();
-  const Twister = useSelector(selectTwisterEnglish);
-  const [showTwister, setShowTwister] = useState(false);
+export const AuroraHero = () => {
   const color = useMotionValue(COLORS_TOP[0]);
 
   useEffect(() => {
@@ -32,21 +27,7 @@ const Tongue = () => {
   const border = useMotionTemplate`1px solid ${color}`;
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
 
-  useEffect(() => {
-    dispatch(fetchTwisterEnglishAsync());
-    const timer = setTimeout(() => {
-      setShowTwister(true);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, [dispatch]);
-
-
   return (
-    <div>
-      {/* {showTwister && Twister && Twister[1] && (
-        <div>{Twister[1].text}</div>
-      )} */}
-    {/* <AuroraHero /> */}
     <div className="relative h-screen w-full">
       <motion.section
       style={{
@@ -102,9 +83,5 @@ const Tongue = () => {
 </div>
 
     </div>
-    </div>
   );
 };
-
-export default Tongue;
-
