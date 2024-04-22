@@ -13,7 +13,9 @@ import {
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
 const Tongue = () => {
-
+  const [language, setLanguage] = useState(null)
+  const [level, setLevel] = useState(null)
+  console.log(level)
   const dispatch = useDispatch();
   const Twister = useSelector(selectTwisterEnglish);
   const [showTwister, setShowTwister] = useState(false);
@@ -33,20 +35,28 @@ const Tongue = () => {
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
 
   useEffect(() => {
-    dispatch(fetchTwisterEnglishAsync());
+    if (language && level) { 
+      dispatch(fetchTwisterEnglishAsync({ level: level, language: language }));
+      setLevel(null);
+      setLanguage(null);
+    }
+    
     const timer = setTimeout(() => {
       setShowTwister(true);
-    }, 100);
+    }, 1000); 
+    
     return () => clearTimeout(timer);
-  }, [dispatch]);
+  }, [dispatch, language, level]);
+  
+  console.log(Twister)
+  let randomNumber
+  if(showTwister && Twister){
+    randomNumber = Math.floor(Math.random() * Twister.length) + 1;
 
+  }
 
   return (
     <div>
-      {/* {showTwister && Twister && Twister[1] && (
-        <div>{Twister[1].text}</div>
-      )} */}
-    {/* <AuroraHero /> */}
     <div className="relative h-screen w-full">
       <motion.section
       style={{
@@ -68,33 +78,54 @@ const Tongue = () => {
     <div className="text-2xl text-gray-300 font-semibold p-10 text-center "> 
       A Random Paragraph Generator That Will Generate Random Sentence For You Help's You In Fluency 
     </div>
-    {/* <div className="text-2xl text-gray-300 font-semibold p-10 text-center"> 
-      Select Your Language
-    </div>
-    <div className="level flex gap-8">
-    <button className="rounded-2xl border-2 border-dashed border-black  bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-      English
-    </button>
-    <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-      Hindi
-    </button>
-    </div> */}
-    <div className="text-2xl text-gray-300 font-semibold p-10 text-center"> 
-      Select Your Level
-    </div>
-    <div className="level flex gap-8">
-    <button className="rounded-2xl border-2 border-dashed border-black  bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-      Easy
-    </button>
-    <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-      Medium
-    </button>
-    <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-      Hard
-    </button>
-    </div>
+      <div className="level">
+        <div className="text-2xl text-gray-300 font-semibold p-10 text-center"> 
+              Select Your Language
+            </div>
+            <div className="level flex gap-8">
+            <button className="rounded-2xl border-2 border-dashed border-black  bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none" 
+            onClick={() => {
+              setLanguage("English");
+              setShowTwister(false);
+            }}>
+              English
+            </button>
+            <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"  
+            onClick={() => {
+              setLanguage("Hindi");
+              setShowTwister(false);
+            }}>
+              Hindi
+            </button>
+            </div>
+        </div>
+      <div className="level">
+      <div className="text-2xl text-gray-300 font-semibold p-10 text-center"> 
+        Select Your Level
+      </div>
+      <div className="level flex gap-8">
+      <button className="rounded-2xl border-2 border-dashed border-black  bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none" onClick={() => setLevel("Easy")}>
+        Easy
+      </button>
+      <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none" onClick={() => setLevel("Moderate")}>
+        Medium
+      </button>
+      <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"  onClick={() => setLevel("Hard")}>
+        Hard
+      </button>
+      </div>
+        </div>
     <div class="w-full flex text-white rounded-lg border-gray-900 opacity-80 bg-gray-800 border-4 m-10 p-auto font-mono  text-center justify-center text-xl">
-     <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, illo?</h1>
+     <h1> 
+     {!showTwister && (
+        <div>Select The Above Options</div>
+      )}
+      {showTwister && Twister && Twister[1] && (
+        <div>{Twister[randomNumber].text}</div>
+      )}
+      
+
+      </h1>
     </div>
 
 

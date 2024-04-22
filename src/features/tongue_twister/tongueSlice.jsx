@@ -7,9 +7,9 @@ const initialState = {
 };
 
 export const fetchTwisterEnglishAsync = createAsyncThunk(
-  'tongue/fetchTwisterEnglish', 
-  async () => {
-    const response = await fetchTwisterEnglish();
+  'tongue/fetchTwisterEnglish',
+  async ({ level, language }) => { 
+    const response = await fetchTwisterEnglish(level, language); 
     return response.data;
   }
 );
