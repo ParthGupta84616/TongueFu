@@ -11,6 +11,7 @@ import FAQPage from './pages/FAQPage';
 import AboutPage from './pages/AboutPage';
 import LiveChat from './features/Live Chat/LiveChat';
 import NavBar from './components/Navbar';
+import Footer from './pages/Footer';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

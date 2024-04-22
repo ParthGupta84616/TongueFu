@@ -1,27 +1,21 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchAllProducts,fetchBrands,fetchCategories,fetchProductsByFilters, fetchSelectedProduct } from './productListAPI';
+import { fetchTwisterEnglish } from './tongueAPI';
 
-const initialState = {
-  products: [],
-  brands :[],
-  categories :[],
-  selectAllProducts: {},
-  status: 'idle',
-  totalItems:0
+const initialState = {  
+  englishTwister: [],
+  status: 'idle', // Added status property to initialState
 };
 
-
-export const fetchAllProductsAsync = createAsyncThunk(
-  'product/fetchAllProducts',
+export const fetchTwisterEnglishAsync = createAsyncThunk(
+  'tongue/fetchTwisterEnglish', 
   async () => {
-    const response = await fetchAllProducts();
+    const response = await fetchTwisterEnglish();
     return response.data;
   }
 );
 
-
-export const productSlice = createSlice({
-  name: 'product',
+export const tongueSlice = createSlice({
+  name: 'tongue', 
   initialState,
   reducers: {
     increment: (state) => {
@@ -30,18 +24,18 @@ export const productSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchAllProductsAsync.pending, (state) => {
+      .addCase(fetchTwisterEnglishAsync.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchAllProductsAsync.fulfilled, (state, action) => {
+      .addCase(fetchTwisterEnglishAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.products = action.payload;
-      })
+        state.englishTwister = action.payload; 
+      });
   },
 });
 
-export const { increment } = productSlice.actions;
+export const { increment } = tongueSlice.actions; 
 
-export const selectAllProducts = (state) => state.product.products;
+export const selectTwisterEnglish = (state) => state.tongue.englishTwister; 
 
-export default productSlice.reducer;
+export default tongueSlice.reducer; 

@@ -1,26 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllProductsAsync, selectAllProducts } from './productSlice';
+import { fetchTwisterEnglishAsync, selectTwisterEnglish } from './tongueSlice';
 
 const Tongue = () => {
   const dispatch = useDispatch();
-  const products = useSelector(selectAllProducts);
+  const Twister = useSelector(selectTwisterEnglish);
+  const [showTwister, setShowTwister] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchAllProductsAsync());
+    dispatch(fetchTwisterEnglishAsync());
+    const timer = setTimeout(() => {
+      setShowTwister(true);
+    }, 100);
+    return () => clearTimeout(timer);
   }, [dispatch]);
+
 
   return (
     <div>
-      <h2>Products Tongue</h2>
-      {products.status === 'loading' ? (
-        <div>Loading...</div>
-      ) : (
-        <ul>
-          {products.map((product) => (
-            <li key={product.id}>{product.name}</li>
-          ))}
-        </ul>
+      {showTwister && Twister && Twister[1] && (
+        <div>{Twister[1].text}</div>
       )}
     </div>
   );
