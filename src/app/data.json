@@ -1040,7 +1040,46 @@
             "text": "सरिता सिर पर सख्त सब्ज़ी का सन्दूक रखती है",
             "category": "Hard"
         }
-    ]
+    ],
+    "Quiz": [
+        {
+          "question": "What is your name?",
+          "options": [
+            {
+              "option1": "Parth Gupta"
+            },
+            {
+              "option2": "Mohit Kumar"
+            },
+            {
+              "option3": "Adolf Hitler"
+            },
+            {
+              "option4": "Joe smoke"
+            }
+          ],
+          "correctOption": "option1"
+        },
+        {
+          "question": "What is the capital of France?",
+          "options": [
+            {
+              "option1": "Paris"
+            },
+            {
+              "option2": "London"
+            },
+            {
+              "option3": "Berlin"
+            },
+            {
+              "option4": "Madrid"
+            }
+          ],
+          "correctOption": "option1"
+        }
+      ]
+    
 } 
       
   

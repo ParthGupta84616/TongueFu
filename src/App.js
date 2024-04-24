@@ -13,6 +13,7 @@ import LiveChat from './features/Live Chat/LiveChat';
 import NavBar from './components/Navbar';
 import Footer from './components/Footer';
 import Blog from './pages/Blog';
+import QuizPage from './pages/QuizPage';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/quiz" element={<QuizPage />} />
       </Routes>
       <Footer />
     </Router>
