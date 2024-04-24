@@ -12,6 +12,7 @@ import AboutPage from './pages/AboutPage';
 import LiveChat from './features/Live Chat/LiveChat';
 import NavBar from './components/Navbar';
 import Footer from './components/Footer';
+import Blog from './pages/Blog';
 
 
 function App() {
@@ -24,11 +25,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/readaloud" element={<ReadAloud />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contactus" element={<Contact />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/tonguetwister" element={<TongueTwister />} />
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
       <Footer />
     </Router>

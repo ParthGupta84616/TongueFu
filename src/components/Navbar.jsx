@@ -42,13 +42,13 @@ function NavBar() {
               <DropDown />
             </Link>
         </li>
-        <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><Link href='javascript:void(0)'
+        <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><Link to={"/blog"}
             class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Blog</Link>
         </li>
         <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><Link to={"/about"}
             class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>About</Link>
         </li>
-        <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><Link href='javascript:void(0)'
+        <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><Link to={"/contactus"}
             class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Contact</Link>
         </li>
         <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><Link to={"/faq"}
@@ -58,10 +58,12 @@ function NavBar() {
     </div>
 
     <div class='flex max-lg:ml-auto space-x-3'>
+    <Link to={"/login"}>
     <button className='px-4 py-2 gap-3 flex text-sm rounded-full font-bold text-white  transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]'>
   <div style={{ fontSize: '20px' }}><FaLock /></div>
-  <Link to={"/login"}><div>Login</div></Link>
+   <div>Login</div>
 </button>
+</Link>
 
       <Link to={"/register"}>
       <button
