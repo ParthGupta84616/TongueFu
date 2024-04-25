@@ -3,6 +3,7 @@ import { questions } from "./quizQuestion";
 import quiz_1 from "../../assets/quiz_1.jpg";
 import quiz_2 from "../../assets/quiz_2.jpg";
 
+
 function shuffleArray(array) {
   const shuffledArray = [...array]; // Copy the original array to avoid mutating it
   for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -13,18 +14,57 @@ function shuffleArray(array) {
 }
 
 const Quiz = () => {
+  const [value, setValue] = useState(6);
   const [firstHalf, setFirstHalf] = useState([]);
   const [page, setPage] = useState(null);
   const [qNo, setQNo] = useState(0);
   const [isOptionSelected, setIsOptionSelected] = useState(false);
-
+  const [improvement, setImprovement] = useState(0)
+  console.log(value)
+  console.log(firstHalf);
   const pickRandom12 = (array) => {
-    const shuffledArray = array.slice(0, 12); // Pick the first 12 elements
-    for (let i = 11; i > 0; i--) {
+    const shuffledArray = array.slice(0, parseInt(value)); 
+    for (let i = parseInt(value)-1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
     }
     return shuffledArray;
+  };
+
+  // useEffect(() => {
+    
+  // }, [value])
+  
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionSelect = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
+  const handleNextQuestion = () => {
+    if (selectedOption !== null) {
+      // console.log("Selected option:", selectedOption);
+      if (selectedOption === String(firstHalf[qNo].trueFalse)) {
+        setImprovement(parseInt(improvement)+ (100 / firstHalf.length));
+      }
+      
+      // console.log(improvement ,selectedOption,  firstHalf[qNo].trueFalse);
+      const radioButtons = document.querySelectorAll('input[name="options"]');
+      const isChecked = Array.from(radioButtons).some(radioButton => radioButton.checked);
+      setSelectedOption(null);
+      if (isChecked) {
+             setQNo(qNo + 1);
+             setIsOptionSelected(false); 
+            radioButtons.forEach(radioButton => radioButton.checked = false);
+      
+      
+          } else {
+            alert("Please select an option before moving to the next question.");
+          }
+          
+    } else {
+      alert("Please select an option before moving to the next question.");
+    }
   };
 
   useEffect(() => {
@@ -35,36 +75,14 @@ const Quiz = () => {
   const handleQuiz = (quiz) => {
     setPage(quiz);
   };
-  const handleNextQuestion = () => {
-    const radioButtons = document.querySelectorAll('input[name="options"]');
-    const isChecked = Array.from(radioButtons).some(radioButton => radioButton.checked);
-    console.log(isChecked)
-    
-    if (isChecked) {
-      setQNo(qNo + 1);
-      setIsOptionSelected(false); 
-      radioButtons.forEach(radioButton => radioButton.checked = false);
-
-
-    } else {
-      alert("Please select an option before moving to the next question.");
-    }
-    
-  };
-  
-  const handleOptionSelect = () => {
-    setIsOptionSelected(true);
-  };
-  
-
 
   return (
     <div className="bg-slate-800 flex justify-center items-center">
       <div className="landing lg:w-1/2 w-11/12 h-full border-2 border-gray-700 bg-slate-900 p-4 m-10 flex items-center justify-center font-mono rounded-2xl shadow-lg shadow-slate-700 ">
         <div className="">
-          {!page && <QuizWindow handleQuiz={handleQuiz} />}
+          {!page && <QuizWindow handleQuiz={handleQuiz} value={value} setValue={setValue}/>}
           
-          {page && qNo<=11 && (
+          {page && qNo<=parseInt(value) && (
             <>
               <div className="flex items-center justify-center">
                 <div className="text-2xl text-white m-8">
@@ -76,7 +94,7 @@ const Quiz = () => {
                   <input
                     id="bordered-radio-1"
                     type="radio"
-                    value="option1"
+                    value="true"
                     name="options"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:bg-white checked:bg-blue-500"
                     onChange={handleOptionSelect}
@@ -92,7 +110,7 @@ const Quiz = () => {
                   <input
                     id="bordered-radio-2"
                     type="radio"
-                    value="option2"
+                    value="false"
                     name="options"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     onChange={handleOptionSelect} 
@@ -115,7 +133,7 @@ const Quiz = () => {
               </div>
             </>
           )}
-          {qNo===12 &&(
+          {qNo===parseInt(value) &&(
             <>
             <div className="flex m-4 p-10 text-5xl font-mono items-center justify-center text-white">
               ScoreBoard
@@ -129,7 +147,7 @@ const Quiz = () => {
               <div className="box1 flex-col justify-center">
                   <div className="m-6 flex items-center"> 12 </div>
                   <div className="m-6 flex items-center"> 12 </div>
-                  <div className="m-6 flex items-center"> 60% </div>
+                  <div className="m-6 flex items-center">{(100 - improvement - 3.6).toFixed(0)} %</div>
               </div>
             </div>
             <div className="flex m-4 p-4 text-4xl font-mono items-center justify-center text-white">
@@ -157,7 +175,9 @@ const QuizCard = ({ quiz, imgSrc, handleQuiz }) => {
     </div>
   );
 };
-const QuizWindow = ({ handleQuiz }) => {
+const QuizWindow = ({ handleQuiz ,value , setValue }) => {
+  
+
   return (
     <>
       <div className="flex items-center justify-center">
@@ -166,6 +186,31 @@ const QuizWindow = ({ handleQuiz }) => {
       <div className="m-10 flex justify-between gap-10 text-white text-3xl">
         <QuizCard quiz={1} imgSrc={quiz_1} handleQuiz={handleQuiz} />
         <QuizCard quiz={2} imgSrc={quiz_2} handleQuiz={handleQuiz} />
+      </div>
+      <div className="m-4 flex justify-center items-center text-white text-3xl">
+       
+        <div className="relative mb-6 w-2/3">
+           <div className="flex justify-center items-center">
+           No. Of Question
+           </div>
+          <label htmlFor="labels-range-input" className="sr-only">Labels range</label>
+          <input
+            id="labels-range-input"
+            type="range"
+            value={value}
+            min="6"
+            max="20"
+            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+            onChange={(e) => setValue(e.target.value)}
+          />
+          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">Min 6</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">10</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-2/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">14</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">Max 20</span>
+        </div>
+      </div>
+      <div className="m-4 flex justify-center items-center text-white text-3xl">
+          {value}
       </div>
     </>
   );
