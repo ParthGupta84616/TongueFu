@@ -4,14 +4,14 @@ import quiz_1 from "../../assets/quiz_1.jpg";
 import quiz_2 from "../../assets/quiz_2.jpg";
 
 
-function shuffleArray(array) {
-  const shuffledArray = [...array]; // Copy the original array to avoid mutating it
-  for (let i = shuffledArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-  }
-  return shuffledArray;
-}
+// function shuffleArray(array) {
+//   const shuffledArray = [...array]; // Copy the original array to avoid mutating it
+//   for (let i = shuffledArray.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+//   }
+//   return shuffledArray;
+// }
 
 const Quiz = () => {
   const [value, setValue] = useState(6);
@@ -20,21 +20,16 @@ const Quiz = () => {
   const [qNo, setQNo] = useState(0);
   const [isOptionSelected, setIsOptionSelected] = useState(false);
   const [improvement, setImprovement] = useState(0)
-  console.log(value)
-  console.log(firstHalf);
+  
+
   const pickRandom12 = (array) => {
-    const shuffledArray = array.slice(0, parseInt(value)); 
-    for (let i = parseInt(value)-1; i > 0; i--) {
+    const shuffledArray = array.slice(0, 12); // Pick the first 12 elements
+    for (let i = 11; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
     }
     return shuffledArray;
   };
-
-  // useEffect(() => {
-    
-  // }, [value])
-  
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionSelect = (event) => {
@@ -43,12 +38,12 @@ const Quiz = () => {
 
   const handleNextQuestion = () => {
     if (selectedOption !== null) {
-      // console.log("Selected option:", selectedOption);
+      console.log("Selected option:", selectedOption);
       if (selectedOption === String(firstHalf[qNo].trueFalse)) {
         setImprovement(parseInt(improvement)+ (100 / firstHalf.length));
       }
       
-      // console.log(improvement ,selectedOption,  firstHalf[qNo].trueFalse);
+      console.log(improvement ,selectedOption,  firstHalf[qNo].trueFalse);
       const radioButtons = document.querySelectorAll('input[name="options"]');
       const isChecked = Array.from(radioButtons).some(radioButton => radioButton.checked);
       setSelectedOption(null);
@@ -82,7 +77,7 @@ const Quiz = () => {
         <div className="">
           {!page && <QuizWindow handleQuiz={handleQuiz} value={value} setValue={setValue}/>}
           
-          {page && qNo<=parseInt(value) && (
+          {page && qNo<=11 && (
             <>
               <div className="flex items-center justify-center">
                 <div className="text-2xl text-white m-8">
@@ -133,7 +128,7 @@ const Quiz = () => {
               </div>
             </>
           )}
-          {qNo===parseInt(value) &&(
+          {qNo===12 &&(
             <>
             <div className="flex m-4 p-10 text-5xl font-mono items-center justify-center text-white">
               ScoreBoard
@@ -187,7 +182,7 @@ const QuizWindow = ({ handleQuiz ,value , setValue }) => {
         <QuizCard quiz={1} imgSrc={quiz_1} handleQuiz={handleQuiz} />
         <QuizCard quiz={2} imgSrc={quiz_2} handleQuiz={handleQuiz} />
       </div>
-      <div className="m-4 flex justify-center items-center text-white text-3xl">
+      {/* <div className="m-4 flex justify-center items-center text-white text-3xl">
        
         <div className="relative mb-6 w-2/3">
            <div className="flex justify-center items-center">
@@ -211,7 +206,7 @@ const QuizWindow = ({ handleQuiz ,value , setValue }) => {
       </div>
       <div className="m-4 flex justify-center items-center text-white text-3xl">
           {value}
-      </div>
+      </div> */}
     </>
   );
 };
