@@ -14,6 +14,7 @@ import NavBar from './components/Navbar';
 import Footer from './components/Footer';
 import Blog from './pages/Blog';
 import QuizPage from './pages/QuizPage';
+import Breathing from './pages/Breathing';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/breathing" element={<Breathing />} />
       </Routes>
       <Footer />
     </Router>
