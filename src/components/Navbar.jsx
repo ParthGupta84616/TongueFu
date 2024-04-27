@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import logo from "../assets/logo.png"
 import { FaLock } from "react-icons/fa";
 import DropDown from './DropDown';
+import { useAuth } from './AuthContext';
 
 function NavBar() {
-  const [User, setUser] = useState(false)
+  const { user} = useAuth()
   return (
     <header class='flex shadow-md py-4 px-4 sm:px-10 bg-slate-900 font-[sans-serif] min-h-[70px] tracking-wide relative z-50'>
   <div class='flex flex-wrap items-center justify-between gap-5 w-full'>
@@ -58,7 +59,7 @@ function NavBar() {
       </ul>
     </div>
 
-    {!User && (
+    {!user && (
     <div class='flex max-lg:ml-auto space-x-3'>
           <Link to={"/login"}>
         <button className='px-4 py-2 gap-3 flex text-sm rounded-full font-bold text-white  transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]'>
@@ -81,6 +82,11 @@ function NavBar() {
       </button>
     </div>
     )}
+    {user && (
+      <h2>you are logged in </h2>
+    )
+
+    }
     </div>
 
 </header>

@@ -5,43 +5,12 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { useAuth } from "../components/AuthContext";
 import loginpic from "../assets/login.png"
-// import { useNavigate } from "react-router-dom";
-
- // Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: "AIzaSyB-mGL2z5Wjj9n2y1gUlXS5MUEUyjUHYZw",
-//   authDomain: "tonguefu-18c07.firebaseapp.com",
-//   projectId: "tonguefu-18c07",
-//   storageBucket: "tonguefu-18c07.appspot.com",
-//   messagingSenderId: "441777426341",
-//   appId: "1:441777426341:web:ea2a840fd0dc3678c7224c",
-//   measurementId: "G-M2E5D9CC9F"
-// };
-
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-// const authInstance = getAuth(app);
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useAuth(); 
-  // const Navigate = useNavigate();
-
-  // const handleGoogleSignIn = () => {
-  //   console.log("here");
-  //   const provider = new GoogleAuthProvider();
-  //   signInWithRedirect(authInstance, provider)
-  //     .then((result) => {
-  //       const user = result.user;
-  //       console.log("Google Sign-in Successful:", user);
-  //       // Navigate("/")
-  //     })
-  //     .catch((error) => {
-  //       console.error("Google Sign-in Error:", error.message);
-  //     });
-  // };
+  
 
   const handleSubmit = async(e) =>{
     e.preventDefault();
