@@ -1,6 +1,42 @@
-import React from 'react'
+import { useState } from "react";
+import firebase from 'firebase/app';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+// import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+// import { Navigate } from "react-router-dom";
+import { useAuth } from "../components/AuthContext";
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyB-mGL2z5Wjj9n2y1gUlXS5MUEUyjUHYZw",
+//   authDomain: "tonguefu-18c07.firebaseapp.com",
+//   projectId: "tonguefu-18c07",
+//   storageBucket: "tonguefu-18c07.appspot.com",
+//   messagingSenderId: "441777426341",
+//   appId: "1:441777426341:web:ea2a840fd0dc3678c7224c",
+//   measurementId: "G-M2E5D9CC9F"
+// };
+
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+// const authInstance = getAuth(app);
 
 function Register() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  // const navigate = Navigate();
+  const { register } = useAuth(); // Destructure the register function from useAuth
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // Call the register function with email and password
+      await register(email, password);
+       // Navigate to the home page after successful registration
+    } catch (error) {
+      console.error("Error signing up:", error.message);
+    }
+  }
+
   return (
     <div class="flex h-screen">
     <div class="hidden lg:flex items-center justify-center flex-1 bg-slate-900 text-black">
@@ -103,21 +139,17 @@ function Register() {
         <div class="mt-4 text-sm text-gray-600 text-center">
           <p>or with email</p>
         </div>
-        <form action="#" method="POST" class="space-y-4 ">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label for="username" class="block text-sm font-medium text-gray-400 ">Username</label>
-            <input type="text" id="username" name="username" class="mt-1 p-2 w-full bg-gray-200 border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"/>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-400">Email</label>
+            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 p-2 w-full border bg-gray-200 rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
           </div>
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-400">Email</label>
-            <input type="text" id="email" name="email" class="mt-1 p-2 w-full border bg-gray-200 rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+            <label htmlFor="password" className="block text-sm font-medium text-gray-400">Password</label>
+            <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} className="mt-1 p-2 w-full bg-gray-200 border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
           </div>
           <div>
-            <label for="password" class="block text-sm font-medium text-gray-400">Password</label>
-            <input type="password" id="password" name="password" class="mt-1 p-2 w-full bg-gray-200 border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
-          </div>
-          <div>
-            <button type="submit" class="w-full bg-black text-white p-2 rounded-md hover:bg-gray-800  focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300">Sign Up</button>
+            <button type="submit" className="w-full bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300">Sign Up</button>
           </div>
         </form>
         <div class="mt-4 text-sm text-gray-600 text-center">

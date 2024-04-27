@@ -1,9 +1,63 @@
-import React from 'react';
-import login from "../assets/login.png"
+import { useState } from "react";
+import firebase from 'firebase/app';
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { useAuth } from "../components/AuthContext";
+import loginpic from "../assets/login.png"
+// import { useNavigate } from "react-router-dom";
+
+ // Your web app's Firebase configuration
+// const firebaseConfig = {
+//   apiKey: "AIzaSyB-mGL2z5Wjj9n2y1gUlXS5MUEUyjUHYZw",
+//   authDomain: "tonguefu-18c07.firebaseapp.com",
+//   projectId: "tonguefu-18c07",
+//   storageBucket: "tonguefu-18c07.appspot.com",
+//   messagingSenderId: "441777426341",
+//   appId: "1:441777426341:web:ea2a840fd0dc3678c7224c",
+//   measurementId: "G-M2E5D9CC9F"
+// };
+
+// Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+// const authInstance = getAuth(app);
 
 function Login() {
-  return (
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login } = useAuth(); 
+  // const Navigate = useNavigate();
+
+  // const handleGoogleSignIn = () => {
+  //   console.log("here");
+  //   const provider = new GoogleAuthProvider();
+  //   signInWithRedirect(authInstance, provider)
+  //     .then((result) => {
+  //       const user = result.user;
+  //       console.log("Google Sign-in Successful:", user);
+  //       // Navigate("/")
+  //     })
+  //     .catch((error) => {
+  //       console.error("Google Sign-in Error:", error.message);
+  //     });
+  // };
+
+  const handleSubmit = async(e) =>{
+    e.preventDefault();
+    try {
+      await login(email, password);
+      setEmail('');
+      setPassword('');
+      // Navigate("/")
+      
+    } catch (error) {
+      console.error("Error logging in:", error.message);
+    }
+  }
+  return(
     <div>
+      
       <body class="bg-slate-900 text-slate-200">
         {/* Background gradients */}
         <div aria-hidden="true" class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
@@ -23,10 +77,12 @@ function Login() {
                   <p class="mb-4 text-slate-200">Enter your email and password</p>
                   
                   {/* Sign in with Google button */}
-                  <a class="flex items-center justify-center w-full py-4 mb-6 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 bg-grey-300 hover:bg-grey-400 focus:ring-4 focus:ring-grey-300">
+                  <button 
+                  // onClick={handleGoogleSignIn}
+                  class="flex items-center justify-center w-full py-4 mb-6 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 bg-grey-300 hover:bg-grey-400 focus:ring-4 focus:ring-grey-300">
                     <img class="h-5 mr-2" src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png" alt=""/>
                     Sign in with Google
-                  </a>
+                  </button>
                   
                   {/* Divider */}
                   <div class="flex items-center mb-3">
@@ -37,11 +93,11 @@ function Login() {
                   
                   {/* Email input */}
                   <label for="email" class="mb-2 text-sm text-start text-grey-900">Email*</label>
-                  <input id="email" type="email" placeholder="mail@loopple.com" class="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-grey-400 mb-7 placeholder:text-grey-700 bg-grey-200 text-black rounded-2xl"/>
+                  <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="mail@loopple.com" class="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-grey-400 mb-7 placeholder:text-grey-700 bg-grey-200 text-black rounded-2xl"/>
                   
                   {/* Password input */}
                   <label for="password" class="mb-2 text-sm text-start text-grey-900">Password*</label>
-                  <input id="password" type="password" placeholder="Enter a password" class="flex items-center w-full px-5 py-4 mb-5 mr-2 text-sm font-medium outline-none focus:bg-grey-400 placeholder:text-grey-700 bg-grey-200 text-black rounded-2xl"/>
+                  <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} class="flex items-center w-full px-5 py-4 mb-5 mr-2 text-sm font-medium outline-none focus:bg-grey-400 placeholder:text-grey-700 bg-grey-200 text-black rounded-2xl"/>
                   
                   {/* Remember me checkbox */}
                   <div class="flex flex-row justify-between mb-8">
@@ -55,7 +111,9 @@ function Login() {
                   </div>
                   
                   {/* Sign In button */}
-                  <button class="w-full px-6 py-5 mb-5 text-sm font-bold leading-none text-white transition duration-300 md:w-96 rounded-2xl hover:bg-slate-700 focus:ring-4 focus:ring-purple-blue-100 bg-slate-800">Sign In</button>
+                  <button
+                  onClick={handleSubmit}
+                  class="w-full px-6 py-5 mb-5 text-sm font-bold leading-none text-white transition duration-300 md:w-96 rounded-2xl hover:bg-slate-700 focus:ring-4 focus:ring-purple-blue-100 bg-slate-800">Sign In</button>
                   
                   {/* Create an account link */}
                   <p class="text-sm leading-relaxed text-grey-900">Not registered yet? <a href="javascript:void(0)" class="font-bold text-grey-700">Create an Account</a></p>
@@ -65,7 +123,7 @@ function Login() {
           </div>
         </div>
         <div className="w-1/2 flex items-center justify-center">
-          <img src={login} alt="" />
+          <img src={loginpic} alt="" />
         </div>
         </div>
       </body>

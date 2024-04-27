@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from "../assets/logo.png"
 import { FaLock } from "react-icons/fa";
 import DropDown from './DropDown';
 
 function NavBar() {
+  const [User, setUser] = useState(false)
   return (
     <header class='flex shadow-md py-4 px-4 sm:px-10 bg-slate-900 font-[sans-serif] min-h-[70px] tracking-wide relative z-50'>
   <div class='flex flex-wrap items-center justify-between gap-5 w-full'>
@@ -57,20 +58,20 @@ function NavBar() {
       </ul>
     </div>
 
+    {!User && (
     <div class='flex max-lg:ml-auto space-x-3'>
-    <Link to={"/login"}>
-    <button className='px-4 py-2 gap-3 flex text-sm rounded-full font-bold text-white  transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]'>
-  <div style={{ fontSize: '20px' }}><FaLock /></div>
-   <div>Login</div>
-</button>
-</Link>
+          <Link to={"/login"}>
+        <button className='px-4 py-2 gap-3 flex text-sm rounded-full font-bold text-white  transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]'>
+      <div style={{ fontSize: '20px' }}><FaLock /></div>
+      <div>Login</div>
+    </button>
+    </Link>
 
       <Link to={"/register"}>
       <button
         class='px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#007bff] bg-[#007bff] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]'>Sign
         up</button>
       </Link>
-
       <button id="toggleOpen" class='lg:hidden'>
         <svg class="w-7 h-7" fill="#000" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
@@ -79,7 +80,9 @@ function NavBar() {
         </svg>
       </button>
     </div>
-  </div>
+    )}
+    </div>
+
 </header>
   )
 }

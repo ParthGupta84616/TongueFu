@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mediapipe/tasks-vision": "^0.10.12",
     "@react-three/drei": "^9.105.4",
     "@react-three/fiber": "^8.16.2",
     "@reduxjs/toolkit": "^1.9.5",
@@ -11,6 +12,7 @@
     "@testing-library/user-event": "^14.4.3",
     "classnames": "^2.5.1",
     "drei": "^2.2.21",
+    "firebase": "^10.11.1",
     "framer-motion": "^11.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
