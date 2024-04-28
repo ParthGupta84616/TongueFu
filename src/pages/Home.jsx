@@ -1,6 +1,6 @@
 import React from 'react'
 // import Tongue from '../features/tongue_twister/Tongue'
-import HeroSection from '../components/home components/HeroSection'
+import HeroSection from '../components/home components/Herosection'
 import Features from '../components/home components/Features'
 import Stats from '../components/home components/Stats'
 import Testimonials from '../components/home components/Testimonials'
@@ -12,11 +12,13 @@ function Home() {
     <div className="bg-slate-900">
       {/* <AuroraHero /> */}.
       <HeroSection />
+      {/* <Stats /> */}
+      {/* <Testimonials /> */}
       <Features />
-      <Stats />
-      <Testimonials />
+		  <div className="mt-32">
+      <Blog/>
+      </div>
 		  <CallToAction/>
-		  <Blog/>
     </div>
   )
 }

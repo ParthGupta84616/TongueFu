@@ -3,12 +3,13 @@ import FA from "../assets/FA.png"
 
 const FAQ = () => {
   return (
-    <section className="relative z-20 overflow-hidden bg-slate-900 pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px] text-gray-400">
-      <div className="container mx-auto">
-        <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4">
+    <section className="relative z-20  bg-slate-900 pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px] text-gray-400">
+      
+      <div className="w-4/5 mx-auto">
+        <div className="-mx-4 flex flex-wrap justify-start">
+          <div className="w-full px-4  flex">
             <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
-              <span className="mb-2 block text-lg font-semibold text-primary">
+              <span className="mb-2 block text-lg font-semibold text-primary" >
                 FAQ
               </span>
               <h2 className="mb-4 text-3xl font-bold text-dark text-gray-300 sm:text-[40px]/[48px]">
@@ -18,7 +19,10 @@ const FAQ = () => {
                 There are many variations of passages of Lorem Ipsum available
                 but the majority have suffered alteration in some form.
               </p>
+              <div className="absolute -z-20 scale-150">
               <img src={FA} alt="Image Description" />
+              </div>
+              
             </div>
           </div>
         </div>
@@ -61,7 +65,7 @@ const FAQ = () => {
             />
         </div>
       </div>
-      <div className="fixed bottom-0 right-0 z-[-1]">
+      <div className="fixed bottom-0 right-0 z-[-1] ">
         <svg
           width="1440"
           height="886"
@@ -105,7 +109,7 @@ const AccordionItem = ({ header, text }) => {
   };
 
   return (
-    <div className="mb-8 w-full rounded-lg bg-slate-800 text p-4 shadow-[0px_20px_95px_0px_rgba(201,203,204,0.30)] dark:bg-dark-2 dark:shadow-[0px_20px_95px_0px_rgba(0,0,0,0.30)] sm:p-8 lg:px-6 xl:px-8">
+    <div className="mb-8 w-full rounded-lg opacity-95 bg-slate-800 text p-4 shadow-[0px_20px_95px_0px_rgba(201,203,204,0.30)] dark:bg-dark-2 dark:shadow-[0px_20px_95px_0px_rgba(0,0,0,0.30)] sm:p-8 lg:px-6 xl:px-8">
       <button
         className={`faq-btn flex w-full text-left`}
         onClick={(event) => handleToggle(event)} // Pass event object here

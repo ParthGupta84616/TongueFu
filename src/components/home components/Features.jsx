@@ -1,5 +1,13 @@
 import React from 'react'
 import Container from './Container'
+import { Link } from 'react-router-dom'
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Smooth scrolling behavior
+  });
+}
 
 function Features() {
   return (
@@ -12,10 +20,11 @@ function Features() {
       </svg>
       
       <h2 class="my-8 text-2xl font-bold text-gray-700 dark:text-white md:text-4xl">
-        A technology-first approach to payments
-        and finance
+        Features
       </h2>
-      <p class="text-gray-600 dark:text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad ipsum pariatur autem, fugit laborum in atque amet obcaecati? Nisi minima aspernatur, quidem nulla cupiditate nam consequatur eligendi magni adipisci.</p>
+      <p class="text-gray-600 dark:text-gray-300">
+
+      </p>
     </div>
     <div
       class="mt-16 grid divide-x divide-y divide-gray-100 dark:divide-gray-700 overflow-hidden rounded-3xl border border-gray-100 text-gray-600 dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4"
@@ -34,18 +43,22 @@ function Features() {
             <h5
               class="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary"
             >
-              First feature
+              Tongue Twister
             </h5>
             <p class="text-gray-600 dark:text-gray-300">
-              Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque dicta porro placeat commodi incidunt rem blanditiis laborum molestiae ad quisquam?
             </p>
           </div>
-          <a href="#" class="flex items-center justify-between group-hover:text-secondary">
+          <Link 
+              to="/tongueTwister" 
+              className="flex items-center justify-between group-hover:text-secondary"
+              onClick={scrollToTop} 
+            >
             <span class="text-sm">Read more</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
               <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z" clip-rule="evenodd" />
             </svg>                
-          </a>
+          </Link>
         </div>
       </div>
       <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
@@ -62,18 +75,22 @@ function Features() {
             <h5
               class="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary"
             >
-              Second feature
+              Read Aloud
             </h5>
             <p class="text-gray-600 dark:text-gray-300">
               Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
             </p>
           </div>
-          <a href="#" class="flex items-center justify-between group-hover:text-secondary">
+          <Link 
+              to="/readaloud" 
+              className="flex items-center justify-between group-hover:text-secondary"
+              onClick={scrollToTop} 
+            >
             <span class="text-sm">Read more</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
               <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z" clip-rule="evenodd" />
             </svg>                
-          </a>
+          </Link>
         </div>
       </div>
       <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
@@ -90,18 +107,20 @@ function Features() {
             <h5
               class="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary"
             >
-              Third feature
+              Breathing Practice
             </h5>
             <p class="text-gray-600 dark:text-gray-300">
               Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
             </p>
           </div>
-          <a href="#" class="flex items-center justify-between group-hover:text-secondary">
+          <Link to={"/breathing"} className="flex items-center justify-between group-hover:text-secondary"
+              onClick={scrollToTop} 
+            >
             <span class="text-sm">Read more</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
               <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z" clip-rule="evenodd" />
             </svg>                
-          </a>
+          </Link>
         </div>
       </div>
       <div
@@ -122,19 +141,21 @@ function Features() {
             <h5
               class="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary"
             >
-              More features
+              Quiz
             </h5>
             <p class="text-gray-600 dark:text-gray-300">
               Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
             </p>
           </div>
-          <a href="#" class="flex items-center justify-between group-hover:text-secondary">
+          <Link to={"/quiz"} class="flex items-center justify-between group-hover:text-secondary"
+          onClick={scrollToTop}
+          >
             <span class="text-sm">Read more</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
               <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z" clip-rule="evenodd" />
             </svg>                
-          </a>
-        </div>
+          </Link>  
+          </div>
       </div>
     </div>
   </Container>
