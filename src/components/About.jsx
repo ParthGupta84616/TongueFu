@@ -1,6 +1,9 @@
 import React from 'react'
 import about from "../assets/about1.png"
 import mohit from "../assets/mohit.jpg"
+import ansh from "../assets/ansh.png"
+import Parth from "../assets/Parth.jpg"
+import mustak from "../assets/mustak.png"
 
 function About() {
   return (
@@ -17,7 +20,7 @@ function About() {
         <div class="sm:w-1/2 p-5">
             <div class="text ">
                 <span class="text-gray-500 border-b-2 border-indigo-600 uppercase ">About us</span>
-                <h2 class="my-4 font-bold text-3xl  sm:text-4xl ">About <span class="text-indigo-600">Our Company</span>
+                <h2 class="my-4 font-bold text-3xl  sm:text-4xl ">Tongue<span class="text-indigo-600">Fu</span>
                 </h2>
                 <p class="text-gray-400">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, commodi
@@ -34,7 +37,7 @@ function About() {
   <div class="container px-5 py-24 mx-auto ">
     <div class="flex flex-col text-center w-full mb-20">
       <h1 class="text-2xl font-medium title-font mb-4 text-gray-100 tracking-widest ">OUR TEAM</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.</p>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Our developers aren't just coding for today, they're building solutions with tomorrow in mind. They stay ahead of the curve, utilizing cutting-edge technologies to ensure that TongueFu will be adaptable and scalable.</p>
     </div>
     <div class="flex flex-wrap -m-4 ">
       <div class="p-4 lg:w-1/2">
@@ -42,7 +45,7 @@ function About() {
           <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src={mohit}/>
           <div class="flex-grow sm:pl-8">
             <h2 class="title-font font-medium text-lg text-gray-900">Holden Caulfield</h2>
-            <h3 class="text-gray-500 mb-3">UI Developer</h3>
+            <h3 class="text-gray-500 mb-3">Mohit Kumar</h3>
             <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
             <span class="inline-flex">
               <a class="text-gray-500">
@@ -66,10 +69,10 @@ function About() {
       </div>
       <div class="p-4 lg:w-1/2 ">
         <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/201x201"/>
+          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src={ansh}/>
           <div class="flex-grow sm:pl-8">
             <h2 class="title-font font-medium text-lg text-gray-900">Alper Kamu</h2>
-            <h3 class="text-gray-500 mb-3">Designer</h3>
+            <h3 class="text-gray-500 mb-3">Ansh Tamrakar</h3>
             <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
             <span class="inline-flex">
               <a class="text-gray-500">
@@ -93,10 +96,10 @@ function About() {
       </div>
       <div class="p-4 lg:w-1/2">
         <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/204x204"/>
+          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src={Parth}/>
           <div class="flex-grow sm:pl-8">
             <h2 class="title-font font-medium text-lg text-gray-900">Atticus Finch</h2>
-            <h3 class="text-gray-500 mb-3">UI Developer</h3>
+            <h3 class="text-gray-500 mb-3">Parth Gupta</h3>
             <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
             <span class="inline-flex">
               <a class="text-gray-500">
@@ -120,10 +123,10 @@ function About() {
       </div>
       <div class="p-4 lg:w-1/2">
         <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/206x206"/>
+          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src={mustak}/>
           <div class="flex-grow sm:pl-8">
             <h2 class="title-font font-medium text-lg text-gray-900">Henry Letham</h2>
-            <h3 class="text-gray-500 mb-3">Designer</h3>
+            <h3 class="text-gray-500 mb-3">MD Mustak</h3>
             <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
             <span class="inline-flex">
               <a class="text-gray-500">

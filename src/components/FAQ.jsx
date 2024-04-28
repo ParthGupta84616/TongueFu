@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FA from "../assets/FA.png"
 
 const FAQ = () => {
   return (
@@ -17,6 +18,7 @@ const FAQ = () => {
                 There are many variations of passages of Lorem Ipsum available
                 but the majority have suffered alteration in some form.
               </p>
+              <img src={FA} alt="Image Description" />
             </div>
           </div>
         </div>
@@ -25,41 +27,48 @@ const FAQ = () => {
           <div className="w-full px-4 lg:w-1/2">
             <AccordionItem
               header="What actually Stammering is ?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              text="Stuttering is believed to result from a combination of genetic, neurological, developmental, and environmental factors.
+              "
             />
             <AccordionItem
               header="Can stuttering be cured ?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              text="While there is no 'cure' for stuttering, speech therapy can help individuals manage and improve their speech fluency."
             />
             <AccordionItem
               header="Can stress or anxiety worsen stuttering ?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              text="Yes, stress, anxiety, and other emotional factors can exacerbate stuttering and increase the frequency and severity of speech disfluencies.
+              "
             />
           </div>
           <div className="w-full px-4 lg:w-1/2">
             <AccordionItem
               header="At what age does stuttering typically begin ?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              text="Stuttering typically begins in early childhood, between the ages of 2 and 5 years old."
             />
             <AccordionItem
               header="Are there certain situations or words that trigger stuttering?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              text="Some individuals may find that certain situations or words trigger their stuttering, leading to increased speech disfluencies."
             />
             <AccordionItem
               header="Can stuttering be treated in adults ?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              text="Yes, stuttering can be treated in adults through speech therapy, focusing on improving speech fluency and confidence in communication."
             />
           </div>
+          <AccordionItem
+              style={{ textAlign: "center" }}
+              header="Where can I find support and resources for stuttering?"
+              text="Support and resources for stuttering can be found through speech therapy services, support groups, online forums, and educational materials."
+            />
         </div>
       </div>
       <div className="fixed bottom-0 right-0 z-[-1]">
-          <svg
-            width="1440"
-            height="886"
-            viewBox="0 0 1440 886"
-            fill="#0000"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+        <svg
+          width="1440"
+          height="886"
+          viewBox="0 0 1440 886"
+          fill="#0000"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             opacity="0.5"
             d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
@@ -103,9 +112,8 @@ const AccordionItem = ({ header, text }) => {
       >
         <div className="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary/5 text-primary dark:bg-white/5">
           <svg
-            className={`fill-primary stroke-primary duration-200 ease-in-out ${
-              active ? "rotate-180" : ""
-            }`}
+            className={`fill-primary stroke-primary duration-200 ease-in-out ${active ? "rotate-180" : ""
+              }`}
             width="17"
             height="10"
             viewBox="0 0 17 10"
@@ -127,14 +135,13 @@ const AccordionItem = ({ header, text }) => {
       </button>
 
       <div
-  className={`pl-[62px] duration-500 ease-in-out ${
-    active ? "block" : "hidden"
-  }`}
->
-  <p className="py-3 text-base leading-relaxed text-body-color dark:text-dark-6">
-    {text}
-  </p>
-</div>
+        className={`pl-[62px] duration-500 ease-in-out ${active ? "block" : "hidden"
+          }`}
+      >
+        <p className="py-3 text-base leading-relaxed text-body-color dark:text-dark-6">
+          {text}
+        </p>
+      </div>
     </div>
   );
 };
