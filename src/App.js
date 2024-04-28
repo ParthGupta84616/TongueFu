@@ -23,7 +23,7 @@ function App() {
   return (
     <Router>
     <AuthProvider> 
-      <LiveChat />
+      {/* <LiveChat /> */}
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
