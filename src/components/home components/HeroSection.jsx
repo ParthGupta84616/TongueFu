@@ -21,7 +21,7 @@ function HeroSection() {
     <Container>
         <div class="relative pt-36 ml-auto">
             <div class="lg:w-2/3 text-center mx-auto">
-                <h1 class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl">Introducing <span class="text-primary dark:text-white">TongueFu</span></h1>
+                <h1 class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl shadow-slate-200 ">Introducing <span class="text-primary dark:text-white">TongueFu</span></h1>
                 <p class="mt-8 text-gray-700 dark:text-gray-300">An Open-source platform for the people who stammer and stutter</p>
                 <div className="rounded-xl mt-7">
                 <video controls autoplay loop className='rounded-2xl ' >

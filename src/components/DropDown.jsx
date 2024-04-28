@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+
 const DropDown = () => {
   return (
     <div className="flex justify-center text-">
@@ -66,7 +67,7 @@ const PricingContent = () => {
                     
                 </div>
                 <div className="content  w-3/4" >
-                  <h1 className="p-2">This is a heading</h1>
+                  <h1 className="p-2">Intro to stammering</h1>
                   <p className="text-xs p-2 -mt-2">
                     this is a paragraphed heading
                     Lorem ...............................................
@@ -79,7 +80,7 @@ const PricingContent = () => {
                     
                 </div>
                 <div className="content  w-3/4" >
-                  <h1 className="p-2">This is a heading</h1>
+                  <h1 className="p-2">10 Interesting Facts about stammmering</h1>
                   <p className="text-xs p-2 -mt-2">
                     this is a paragraphed heading
 
@@ -113,9 +114,9 @@ const PricingContent = () => {
         Contact Us
       </button>
       <div className="space-y-3 text-xl">
-        <a href="#" className="block text-sm hover:underline mt-4 text-blue-800 underline">
+        <link to = {"/contactus"} className="block text-sm hover:underline mt-4 text-blue-800 underline">
           Learn More.....
-        </a>
+        </link>
         </div>
     </div>
 

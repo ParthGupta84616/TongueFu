@@ -56,7 +56,7 @@ function Footer() {
             </div>
 
             {/* middle div */}
-            <div className="flex flex-col gap-8 relative hover:text-white text-slate-200">
+            {/* <div className="flex flex-col gap-8 relative hover:text-white text-slate-200">
               <p className="text-[22px] font-bold footer-main">Our Classes</p>
 
               <span className="top-[33px] absolute w-[7rem] h-[4px] bg-[#ff0366]"></span>
@@ -76,10 +76,10 @@ function Footer() {
               <p className="text-[16px]  cursor-pointer  font-medium hover:font-bold">
                 Full-body Strength
               </p>
-            </div>
+            </div> */}
 
             {/* right div */}
-            <div className="flex flex-col gap-8 relative text-slate-200">
+            {/* <div className="flex flex-col gap-8 relative text-slate-200">
               <p className="text-[22px] font-bold footer-main">Working Hours</p>
 
               <span className="top-[33px] absolute w-[7rem] h-[4px] bg-[#ff0366]"></span>
@@ -97,7 +97,7 @@ function Footer() {
               <p className="text-[16px]  font-bold ">
                 Sunday - Closed
               </p>
-            </div>
+            </div> */}
 
             {/* middle div */}
             <span></span>
